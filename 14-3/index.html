@@ -9,17 +9,27 @@
 
     <!-- Utmify utms capture -->
     <script src="js/latest.js" data-utmify-prevent-subids="" async="" defer=""></script>
- <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=17059061579"></script>
+  
+    <!-- Utmify pixel -->
+    <script>
+        window.pixelId = "67fc6e7f5a1d50ce1722301e";
+        var a = document.createElement("script");
+        a.setAttribute("async", "");
+        a.setAttribute("defer", "");
+        a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+        document.head.appendChild(a);
+    </script>
+    <!-- Utmify end -->
+     <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17053371279"></script>
 <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-    gtag('config', 'AW-17059061579');
+  gtag('config', 'AW-17059061579');
 </script>
-
-
+    
     <style>
         body {
             margin: 0;
@@ -319,7 +329,7 @@
             </p>
 
             <div style="text-align: center; font-size: 28px; font-weight: bold; color: #ffbf00;">
-                    R$ 28,30
+                    R$ 24,30
             </div>
 
             <button onclick="openPixModal()" class="button">
@@ -393,7 +403,7 @@
         <div class="modal-pix">
             <button class="close-btn" onclick="closePixModal()">&times;</button>
             <h2>Pagamento via PIX</h2>
-            <div class="pix-amount">R$ 28,30</div>
+            <div class="pix-amount">R$ 24,30</div>
             
             <div class="qrcode-container" id="qrcode"></div>
             
@@ -591,14 +601,15 @@
         function openPixModal() {
             document.getElementById('pixModal').classList.add('active');
             criarTransacao();
+        }
+            // Disparar o evento de conversão do Google quando o botão do PIX for clicado
             gtag('event', 'conversion', {
             'send_to': 'AW-17059061579/ZzEBCKDTvsMaEMu-ssY_',
-            'value': 24.30,
+            'value': 28.30,
             'currency': 'BRL',
             'transaction_id': ''
         });
-    }
-        
+    
 
         function closePixModal() {
             document.getElementById('pixModal').classList.remove('active');
@@ -630,7 +641,7 @@
             const item = {
                 title: "Frete do Cartão",  // Nome do item (Título)
                 quantity: 1,
-                unitPrice: 2830, // Preço em centavos (R$28,30)
+                unitPrice: 2430, // Preço em centavos (R$24,30)
                 tangible: true // Se o item é tangível ou não (produto físico)
             };
 
@@ -638,7 +649,7 @@
             const amount = item.unitPrice * item.quantity;
 
             // Número do documento (CPF ou CNPJ)
-            const numeroDocumento = "12345678909"; // Substitua pelo CPF ou CNPJ válido
+            const numeroDocumento = "02819997597"; // Substitua pelo CPF ou CNPJ válido
             const tipoDocumento = numeroDocumento.length === 11 ? "cpf" : "cnpj"; // Determina o tipo baseado no tamanho
 
             // Dados da transação
